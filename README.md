@@ -1,4 +1,4 @@
-# generator-raadhuis [![Build Status](https://secure.travis-ci.org/sierag/generator-raadhuis.png?branch=master)](https://travis-ci.org/sierag/generator-raadhuis)
+# generator-raadhuis [![Build Status](https://secure.travis-ci.org/raadhuis/generator-raadhuis.png?branch=master)](https://travis-ci.org/raadhuis/generator-raadhuis)
 
 > [Yeoman](http://yeoman.io) generator
 
