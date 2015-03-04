@@ -1,0 +1,10 @@
+# Default modx exclusions
+User-agent: *
+Disallow: /assets/site/
+Disallow: /setup/
+Disallow: /manager/
+Disallow: /core/
+Disallow: /connectors/
+
+# For sitemaps.xml autodiscovery. Uncomment if you have one:
+Sitemap: /sitemap.xml
