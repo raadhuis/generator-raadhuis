@@ -6,7 +6,7 @@ var helpers = require('yeoman-generator').test;
 var assert = require('yeoman-generator').assert;
 var _ = require('underscore');
 
-describe('Webapp generator', function () {
+describe('RAADHUIS generator', function () {
   // not testing the actual run of generators yet
   it('the generator can be required without throwing', function () {
     this.app = require('../app');
@@ -52,11 +52,11 @@ describe('Webapp generator', function () {
         assert.file([].concat(
           expected,
           'app/styles/main.css',
-          'app/scripts/main.js'
+          'app/js/main.js'
         ));
         assert.noFile([
           'app/styles/main.scss',
-          'app/scripts/main.coffee'
+          'app/js/main.coffee'
         ]);
 
         assert.fileContent(expectedContent);
@@ -89,9 +89,9 @@ describe('Webapp generator', function () {
 
         assert.file([].concat(
           expected,
-          'app/scripts/main.coffee'
+          'app/js/main.coffee'
         ));
-        assert.noFile('app/scripts/main.js');
+        assert.noFile('app/js/main.js');
 
         assert.fileContent([].concat(
           expectedContent,
