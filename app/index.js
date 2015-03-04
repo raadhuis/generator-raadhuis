@@ -33,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
     if (!this.options['skip-welcome-message']) {
       this.log(require('yosay')());
       this.log(chalk.magenta(
-        'Welcome to the RAADHUIS generator. Out of the box we will include HTML5 Boilerplate, jQuery, and a ' +
+        'Out of the box I include HTML5 Boilerplate, jQuery, and a ' +
         'Gruntfile.js to build your app.'
       ));
     }
@@ -45,15 +45,15 @@ module.exports = yeoman.generators.Base.extend({
       choices: [{
         name: 'Bootstrap',
         value: 'includeBootstrap',
-        checked: false
+        checked: true
       },{
         name: 'Sass',
         value: 'includeSass',
-        checked: true
+        checked: false
       },{
         name: 'Modernizr',
         value: 'includeModernizr',
-        checked: true
+        checked: false
       }]
     }, {
       when: function (answers) {
@@ -65,7 +65,7 @@ module.exports = yeoman.generators.Base.extend({
       value: 'includeLibSass',
       message: 'Would you like to use libsass? Read up more at \n' +
         chalk.green('https://github.com/andrew/node-sass#node-sass'),
-      default: true
+      default: false
     }];
 
     this.prompt(prompts, function (answers) {
@@ -147,7 +147,7 @@ module.exports = yeoman.generators.Base.extend({
       this.indexFile = this.appendFiles({
         html: this.indexFile,
         fileType: 'js',
-        optimizedPath: 'js/plugins.js',
+        optimizedPath: 'scripts/plugins.js',
         sourceFileList: [
           bs + 'affix.js',
           bs + 'alert.js',
@@ -169,17 +169,17 @@ module.exports = yeoman.generators.Base.extend({
     this.indexFile = this.appendFiles({
       html: this.indexFile,
       fileType: 'js',
-      optimizedPath: 'js/main.js',
-      sourceFileList: ['js/main.js'],
+      optimizedPath: 'scripts/main.js',
+      sourceFileList: ['scripts/main.js'],
       searchPath: ['app', '.tmp']
     });
   },
 
   app: function () {
     this.directory('app');
-    this.mkdir('app/js');
+    this.mkdir('app/scripts');
     this.mkdir('app/styles');
-    this.mkdir('app/img');
+    this.mkdir('app/images');
     this.write('app/index.html', this.indexFile);
 
     if (this.coffee) {
