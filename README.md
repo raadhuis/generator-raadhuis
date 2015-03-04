@@ -1,32 +1,35 @@
 # generator-raadhuis [![Build Status](https://secure.travis-ci.org/raadhuis/generator-raadhuis.png?branch=master)](https://travis-ci.org/raadhuis/generator-raadhuis)
 
-> [Yeoman](http://yeoman.io) generator
+## Features
 
+* CSS Autoprefixing
+* Built-in preview server with LiveReload
+* Automagically compile CoffeeScript & Sass
+* Automagically lint your scripts
+* Automagically wire up your Bower components with [grunt-wiredep](#third-party-dependencies).
+* Awesome Image Optimization (via OptiPNG, pngquant, jpegtran and gifsicle)
+* Mocha Unit Testing with PhantomJS
+* Leaner Modernizr builds (Optional)
+
+For more information on what `generator-webapp` can do for you, take a look at the [Grunt tasks](https://github.com/yeoman/generator-webapp/blob/master/app/templates/_package.json) used in our `package.json`.
 
 ## Getting Started
 
 ### What is Yeoman?
 
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-Basically, he wears a top hat, lives in your computer, and waits for you to tell him what kind of application you wish to create.
-
 Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
 
 ```bash
-npm install -g yo
+sudo npm install -g yo
 ```
+If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
 
-### Yeoman Generators
-
-Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
+### Using Yeoman RAADHUIS generator 
 
 To install generator-raadhuis from npm, run:
 
 ```bash
-npm install -g generator-raadhuis
+sudo npm install -g generator-raadhuis
 ```
 
 Finally, initiate the generator:
@@ -35,13 +38,31 @@ Finally, initiate the generator:
 yo raadhuis
 ```
 
-### Getting To Know Yeoman
+Beginning the development process by just type:
+```bash
+grunt serve
+```
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
+#### Third-Party Dependencies
 
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
+*(HTML/CSS/JS/Images/etc)*
 
+Third-party dependencies are managed with [grunt-wiredep](https://github.com/stephenplusplus/grunt-wiredep). Add new dependencies using **Bower** and then run the **Grunt** task to load them:
+
+```sh
+$ bower install --save jquery
+$ grunt wiredep
+```
+
+This works if the package author has followed the [Bower spec](https://github.com/bower/bower.json-spec). If the files are not automatically added to your source code, check with the package's repo for support and/or file an issue with them to have it updated.
+
+To manually add dependencies, `bower install --save depName` to get the files, then add a `script` or `style` tag to your `index.html` or another appropriate place.
+
+The components are installed in the root of the project at `/bower_components`. To reference them from index.html, use `src="bower_components"` or `src="/bower_components"`. Treat the `bower_components` directory as if it was a sibling to `index.html`.
+
+*Testing Note*: a project checked into source control and later checked out needs to have `bower install` run from the `test` folder as well as from the project root.
 
 ## License
 
-MIT
+[BSD license](http://opensource.org/licenses/bsd-license.php)
+
